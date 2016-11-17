@@ -6,6 +6,7 @@ Reunião de scripts, informação e documentação pertinente ao emprego do Ardu
 O Arduino Leonardo utiliza o chip ATmega 32U4, que possui a capacidade de emular um teclado HID USB, e com isso ele tem a propriedade de executar qualquer comando, uma vez inserido em uma porta USB na máquina-alvo.
 Os Scripts foram testados e desenvolvidos utilizando uma CJMCU Beetle.
 vídeos provando o conceito:
+
 https://www.youtube.com/watch?v=TK-5TW9cVxg
 https://www.youtube.com/watch?v=HUx3rip1vJY
 
