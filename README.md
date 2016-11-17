@@ -8,7 +8,6 @@ Os Scripts foram testados e desenvolvidos utilizando uma CJMCU Beetle.
 
 vídeos provando o conceito:
 https://www.youtube.com/watch?v=TK-5TW9cVxg
-
 https://www.youtube.com/watch?v=HUx3rip1vJY
 
 ![alt tag](http://img.banggood.com/images/2014/xiemeijuan/03/SKU207386/SKU207386-2.jpg)
