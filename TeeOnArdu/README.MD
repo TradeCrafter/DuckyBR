@@ -2,7 +2,9 @@
   
   Este trabalho é o resultado das buscas de um meio para utilizar o Arduino Leonardo emulando um teclado pt-BR ABNT2.
   O Arduino Leonardo tem a capacidade de emular um teclado HID USB, podendo assim ser utilizado para, furtivamente, executar códigos maliciosos e comprometer a segurança de um computador.
-                                >>> "https://www.youtube.com/watch?v=4UxkpEODDXI" <<<
+  
+                        >>> "https://www.youtube.com/watch?v=4UxkpEODDXI" <<<
+
   É sabido que o Arduino Leonardo, utilizando a Lib Keyboard.h, não é capaz de emular outro layout de teclado que não o en-US, tornando o seu uso em computadores rodando Windows pt-BR, deveras complicado.
   Diversos artifícios já foram utilizados de modo a contornar, porém nenhuma solução definitiva foi encontrada, ainda.
   O presente trabalho, alcança o melhor método encontrado, onde se utiliza a Sintaxe do USBDriveBy, criado por Samy Kankar utilizando um Teensy, no entanto alguns caracteres são negados, a saber:(Ç,#,*), porém como todos os outros são escritos corretamente pelo Arduino e a maioria dos scripts não faz uso desses caracteres, este foi considerado o melhor método de usar o Arduino Leonardo como um USB RubberDucky. 
