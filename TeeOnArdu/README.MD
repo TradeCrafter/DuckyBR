@@ -10,3 +10,5 @@
   O Arduino Utilizado nesse intento foi o CJMCU Beetle, trata-se de uma placa de desenvolvimento do ATmega 32U4, contando em seu barramento com interface SPI e I²C, algumas GPIOs e um pino de RESET que necessita ser utilizado em conjunto com o GND por meio de um microSwitch a ser soldado, com a finalidade de colocar a placa em modo de gravação pela IDE do Arduíno, toda a vez que vc desejar fazer o upload de algum script.
   
   A IDE Arduíno utilizada é portable da Adafruit de versão 1.6.4, com as libs TeeOnArdu e TeensyDuino, que permitem ao compilador oferecer a placa TeeOnArdu, que possui o menu "Keyboard Layout", contendo diversos idiomas diferentes. Deve ser criada as pastas /hardware/avr dentro da pasta Arduino de "Meus Documentos", em uma maquina Windows, o arquivo zipado contendo a bilbioteca TeeOnArdu deverá ser extraído alí.
+
+*** O Presente trabalho destina-se a intenções educacionais , apenas. O Proprietário deste Repositório não se responsabiliza pelo mal uso desta ferramenta. ***
